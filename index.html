@@ -3,332 +3,256 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0066FF" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Encuentra empleo con BDEO o compra/vende con ADS en Cuba. Ecosistema digital completo.">
-  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0066FF">
   <meta name="color-scheme" content="dark">
+  <meta name="description" content="KUBANO: descarga BDEO para empleo o ADS para marketplace. Ecosistema digital oficial para Cuba, con KOOWEXA.">
+  <meta name="keywords" content="KUBANO, BDEO, ADS, descargar app Cuba, empleo Cuba, marketplace Cuba, KOOWEXA">
   <meta name="author" content="KUBANO & KOOWEXA">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://kubanooficial.github.io/website/">
 
+  <title>KUBANO | Descargar BDEO y ADS · Oficial Cuba</title>
+
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/webp" href="https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp">
+  <link rel="apple-touch-icon" href="https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KUBANO">
+  <meta property="og:locale" content="es_CU">
+  <meta property="og:title" content="KUBANO | Descargar BDEO y ADS">
+  <meta property="og:description" content="Descarga BDEO (empleo) o ADS (marketplace). Ecosistema oficial para Cuba, con KOOWEXA.">
+  <meta property="og:image" content="https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp">
+  <meta property="og:image:secure_url" content="https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="Logotipo oficial de KUBANO">
+  <meta property="og:url" content="https://kubanooficial.github.io/website/">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KUBANO | Descargar BDEO y ADS">
+  <meta name="twitter:description" content="Descarga BDEO (empleo) o ADS (marketplace). Ecosistema oficial para Cuba.">
+  <meta name="twitter:image" content="https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp">
+  <meta name="twitter:image:alt" content="Logotipo oficial de KUBANO">
+
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/icon-192x192.png" type="image/png">
-  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "KUBANO",
+    "url": "https://kubanooficial.github.io/website/",    "inLanguage": "es-CU",
+    "description": "Ecosistema digital oficial para Cuba: empleo con BDEO y marketplace con ADS.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "KUBANO & KOOWEXA",
+      "url": "https://kubanooficial.github.io/website/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kubanooficial.github.io/website/?q={query}",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KUBANO",
+    "alternateName": "KUBANO Oficial",
+    "url": "https://kubanooficial.github.io/website/",
+    "logo": "https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp",
+    "foundingDate": "2025",
+    "description": "Plataforma digital cubana que integra bolsa de empleo (BDEO) y marketplace (ADS) en alianza con KOOWEXA.",
+    "partner": {
+      "@type": "Organization",
+      "name": "KOOWEXA"
+    },
+    "sameAs": [
+      "https://github.com/kubanooficial",
+      "https://whatsapp.com/channel/0029VbCbhZSCXC3KMfIsc33z"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: MobileApplication BDEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "BDEO · KUBANO",
+    "operatingSystem": "Android",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Job Board",    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.1",
+      "ratingCount": "40"
+    },
+    "installUrl": "https://spoo.me/app_bdeo",
+    "description": "Bolsa laboral con vacantes diarias y contacto directo con reclutadores en Cuba."
+  }
+  </script>
+
+  <!-- JSON-LD: MobileApplication ADS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "ADS · KUBANO",
+    "operatingSystem": "Android",
+    "applicationCategory": "ShoppingApplication",
+    "applicationSubCategory": "Marketplace",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.1",
+      "ratingCount": "40"
+    },
+    "installUrl": "https://spoo.me/app_ads",
+    "description": "Marketplace para comprar y vender productos o servicios en Cuba con chat interno directo."
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (GEO-ready) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es KUBANO?",
+        "acceptedAnswer": {
+          "@type": "Answer",          "text": "KUBANO es el ecosistema digital oficial para Cuba que integra BDEO (bolsa de empleo) y ADS (marketplace de compra y venta), desarrollado en alianza con KOOWEXA."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué ofrece BDEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BDEO es la bolsa laboral de KUBANO: vacantes nuevas cada día, contacto directo con reclutadores en toda Cuba, empleos adaptados a tu perfil y acceso 100% seguro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es ADS en KUBANO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ADS es el marketplace de KUBANO: permite publicar productos o servicios en segundos, recibir ofertas y cerrar tratos con chat interno directo, sin caducidad ni republicaciones."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo descargar las apps de KUBANO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BDEO se descarga en https://spoo.me/app_bdeo y ADS en https://spoo.me/app_ads. Ambas son ligeras y requieren conexión a internet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿KUBANO tiene canal oficial de WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El canal oficial de WhatsApp de KUBANO comparte novedades, promociones exclusivas e información relevante de BDEO y ADS."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Quién es KOOWEXA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KOOWEXA es el aliado oficial de KUBANO en el desarrollo del ecosistema digital para Cuba."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="stylesheet" href="styles.css">
-  <title>KUBANO | Marketplace Cuba</title>
 </head>
 <body>
-  <header class="header">
-    <nav class="nav container" aria-label="Principal">
-      <a href="icons/icon-512x512.png" class="logo" aria-label="KUBANO">
-        <span class="logo-icon" aria-hidden="true">Y</span>
+  <header class="header" role="banner">
+    <div class="container nav">
+      <a href="https://kubanooficial.github.io/website/" class="logo" aria-label="KUBANO inicio">
+        <img src="https://github.com/kubanooficial/website/raw/refs/heads/main/img/kub.webp" alt="" width="32" height="32" class="logo-icon" loading="eager" decoding="async">
         <span>KUBANO</span>
       </a>
-
-      <button id="navToggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-        <span aria-hidden="true"></span>
-      </button>
-
-      <ul id="navLinks" class="nav-links">
-        <li><a href="#bdeo">BDEO Empleos</a></li>
-        <li><a href="#ads">ADS Marketplace</a></li>
-        <li><a href="#descargar">Apps</a></li>
-        <li><a href="#whatsapp-channel">WhatsApp</a></li>
-      </ul>
-    </nav>
+    </div>
   </header>
 
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+  <main>
+    <section class="downloads" id="descargar" aria-labelledby="downloads-title">
       <div class="container">
-        <span class="badge">🤝 Alianza oficial · KUBANO + KOOWEXA</span>
-        <h1 id="hero-title">Ecosistema Marketplace: <br> Empleos + Compra/Venta</h1>
-        <p>Encuentra trabajo en BDEO o compra y vende lo que necesites en ADS. Todo en un ecosistema digital pensado para Cuba.</p>
-        <div class="hero-ctas">
-          <a href="#bdeo" class="btn btn-primary">💼 BDEO: Bolsa Laboral</a>
-          <a href="#ads" class="btn btn-secondary">🛒 ADS: Comprar/Vender</a>
-        </div>
+        <p class="eyebrow">Alianza oficial · KUBANO + KOOWEXA</p>
+        <h1 id="downloads-title">Descarga las apps de KUBANO</h1>
+        <p class="lead">Elige la que necesites, o instala ambas para potenciar tu economía y tu carrera en Cuba.</p>
 
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-value">+40</div>
-            <div class="stat-label">Usuarios activos</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">+100</div>
-            <div class="stat-label">Ofertas diarias</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">4.1★</div>
-            <div class="stat-label">Valoración</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="bdeo" class="section" aria-labelledby="bdeo-title">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">BDEO · Empleos en toda Cuba</span>
-          <h2 id="bdeo-title">Conecta con empresas</h2>
-          <p class="section-subtitle">Miles de personas confían en BDEO para encontrar el trabajo ideal</p>
-        </div>
-
-        <div class="app-grid reverse reveal">
-          <div class="app-content">
-            <h3>Encuentra el empleo que mereces</h3>
-            <p>Accede a múltiples vacantes nuevas cada día, contacta directamente con reclutadores y aprovecha empleos basados en tus necesidades con acceso 100% seguro.</p>
-
-            <div class="features">
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">📋</div>
-                <div>
-                  <h4>Múltiples vacantes diarias</h4>
-                  <p>Nuevas oportunidades actualizadas constantemente</p>
-                </div>
-              </div>
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">💬</div>
-                <div>
-                  <h4>Contacto directo</h4>
-                  <p>Habla con reclutadores sin intermediarios</p>
-                </div>
-              </div>              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">🎯</div>
-                <div>
-                  <h4>Empleos a tu medida</h4>
-                  <p>Ofertas basadas en tus necesidades y perfil</p>
-                </div>
-              </div>
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">🔒</div>
-                <div>
-                  <h4>Acceso seguro</h4>
-                  <p>Tu información siempre protegida</p>
-                </div>
-              </div>
+        <div class="download-grid">
+          <article class="download-card" aria-labelledby="bdeo-title">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
             </div>
-          </div>
-
-          <div class="phone-mockup" aria-hidden="true">
-            <div class="phone-screen">
-              <div class="phone-statusbar">
-                <span class="phone-statusbar-left">9:41</span>
-                <span class="phone-statusbar-right">📶🔥</span>
-              </div>
-              <div class="phone-header">
-                <h4>BDEO · Ofertas IA</h4>
-                <div class="phone-search">🔍 Buscar empleo...</div>
-              </div>
-              <div class="phone-cards">
-                <div class="phone-card">
-                  <div class="phone-card-icon">💻</div>
-                  <div class="phone-card-content">
-                    <h5>Desarrollador FullStack</h5>
-                    <p>Remoto · Salario competitivo</p>
-                  </div>
-                </div>
-                <div class="phone-card">
-                  <div class="phone-card-icon">🏥</div>
-                  <div class="phone-card-content">
-                    <h5>Enfermero/a</h5>
-                    <p>Clínica privada · Jornada completa</p>
-                  </div>
-                </div>
-                <div class="phone-card">
-                  <div class="phone-card-icon">🍽️</div>
-                  <div class="phone-card-content">
-                    <h5>Chef Ejecutivo</h5>
-                    <p>Restaurante · Tiempo completo</p>
-                  </div>
-                </div>
-                <div class="phone-card">                  <div class="phone-card-icon">📊</div>
-                  <div class="phone-card-content">
-                    <h5>Analista de Datos</h5>
-                    <p>Híbrido · Beneficios</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="ads" class="section" aria-labelledby="ads-title">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">ADS · Compra y vende lo que necesites</span>
-          <h2 id="ads-title">Marketplace directo</h2>
-          <p class="section-subtitle">Sube tus productos o servicios en segundos, recibe ofertas y cierra tratos directamente</p>
-        </div>
-
-        <div class="app-grid reveal">
-          <div class="phone-mockup" aria-hidden="true">
-            <div class="phone-screen">
-              <div class="phone-statusbar">
-                <span class="phone-statusbar-left">9:41</span>
-                <span class="phone-statusbar-right">📶🔥</span>
-              </div>
-              <div class="phone-header">
-                <h4>ADS · Destacados</h4>
-                <div class="phone-search">🔍 iPhone, piso, bicicleta...</div>
-              </div>
-              <div class="phone-cards">
-                <div class="phone-card">
-                  <div class="phone-card-icon">📱</div>
-                  <div class="phone-card-content">
-                    <h5>iPhone 15 Pro</h5>
-                    <p>890€ · Madrid · 4.9★</p>
-                  </div>
-                </div>
-                <div class="phone-card">
-                  <div class="phone-card-icon">🏠</div>
-                  <div class="phone-card-content">
-                    <h5>Apartamento centro</h5>
-                    <p>750€/mes · Barcelona</p>
-                  </div>
-                </div>
-                <div class="phone-card">
-                  <div class="phone-card-icon">🚲</div>
-                  <div class="phone-card-content">                    <h5>Bicicleta montaña</h5>
-                    <p>220€ · Valencia · 4.7★</p>
-                  </div>
-                </div>
-                <div class="phone-card">
-                  <div class="phone-card-icon">🎸</div>
-                  <div class="phone-card-content">
-                    <h5>Guitarra acústica</h5>
-                    <p>150€ · Sevilla · 5.0★</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-content">
-            <h3>Tu anuncio, tus reglas</h3>
-            <p>Sube productos o servicios, recibe ofertas y cierra tratos con chat directo interno. Sin republicaciones, sin caducidad, sin complicaciones.</p>
-
-            <div class="features">
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">⚡</div>
-                <div>
-                  <h4>Publica en segundos</h4>
-                  <p>Sube productos o servicios de forma inmediata</p>
-                </div>
-              </div>
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">💬</div>
-                <div>
-                  <h4>Chat directo interno</h4>
-                  <p>Comunícate sin depender de medios externos</p>
-                </div>
-              </div>
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">♾️</div>
-                <div>
-                  <h4>Sin caducidad</h4>
-                  <p>Tus anuncios permanecen activos siempre</p>
-                </div>
-              </div>
-              <div class="feature">
-                <div class="feature-icon" aria-hidden="true">⭐</div>
-                <div>
-                  <h4>Destaca tu negocio</h4>
-                  <p>Funciones exclusivas para posicionarte mejor</p>
-                </div>
-              </div>
-            </div>
-          </div>        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="benefits-title">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">🌟 Potencia tu economía y carrera</span>
-          <h2 id="benefits-title">Todo lo que necesitas</h2>
-          <p class="section-subtitle">Funciones diseñadas para que crezcas en el entorno laboral y en el mercado</p>
-        </div>
-
-        <ul class="benefits reveal">
-          <li class="benefit"><div class="benefit-icon" aria-hidden="true">🔄</div><h4>Actualización Diaria</h4></li>
-          <li class="benefit"><div class="benefit-icon" aria-hidden="true">⚡</div><h4>Conexión Rápida</h4></li>
-          <li class="benefit"><div class="benefit-icon" aria-hidden="true">🎯</div><h4>Recomendaciones</h4></li>
-          <li class="benefit"><div class="benefit-icon" aria-hidden="true">⭐</div><h4>Destaca tu negocio</h4></li>
-          <li class="benefit"><div class="benefit-icon" aria-hidden="true">📢</div><h4>Anuncia lo que necesites</h4></li>
-          <li class="benefit"><div class="benefit-icon" aria-hidden="true">💬</div><h4>Comunica Directamente</h4></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="descargar" class="section" aria-labelledby="download-title">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">📲 KUBANO en línea</span>
-          <h2 id="download-title">Descarga las apps</h2>
-          <p class="section-subtitle">Descarga la app que necesites o ambas para potenciar tu economía</p>
-        </div>
-
-        <div class="downloads reveal">
-          <article class="download-card">
-            <div class="download-icon" aria-hidden="true">📱</div>
-            <h3>BDEO · App empleo</h3>
             <span class="tag tag-paid">De pago</span>
-            <div class="download-features">
-              <span>Tamaño ligero</span>
-              <span>Con Internet</span>
-              <span>Ofertas Variadas</span>
-            </div>
-            <a href="https://spoo.me/app_bdeo" class="download-btn" rel="noopener">Descargar BDEO</a>
+            <h2 id="bdeo-title">BDEO · Empleo</h2>
+            <p class="card-desc">Bolsa laboral con vacantes diarias y contacto directo con reclutadores en toda Cuba.</p>
+            <ul class="card-points" aria-label="Características de BDEO">
+              <li>Vacantes nuevas cada día</li>
+              <li>Contacto directo con reclutadores</li>
+              <li>Tamaño ligero · Requiere internet</li>
+            </ul>
+            <a class="btn btn-primary" href="https://spoo.me/app_bdeo" rel="external noopener">Descargar BDEO</a>
           </article>
 
-          <article class="download-card">
-            <div class="download-icon" aria-hidden="true">🛒</div>
-            <h3>ADS · Marketplace</h3>
+          <article class="download-card" aria-labelledby="ads-title">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </div>
             <span class="tag tag-free">Gratuito</span>
-            <div class="download-features">
-              <span>Tamaño ligero</span>              <span>Con Internet</span>
-              <span>Anuncios sin caducidad</span>
-            </div>
-            <a href="https://spoo.me/app_ads" class="download-btn" rel="noopener">Descargar ADS</a>
+            <h2 id="ads-title">ADS · Marketplace</h2>
+            <p class="card-desc">Publica productos o servicios, recibe ofertas y cierra tratos con chat interno directo.</p>
+            <ul class="card-points" aria-label="Características de ADS">
+              <li>Publicación inmediata</li>
+              <li>Chat interno · Sin caducidad</li>              <li>Tamaño ligero · Requiere internet</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://spoo.me/app_ads" rel="external noopener">Descargar ADS</a>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section id="whatsapp-channel" class="section" aria-labelledby="whatsapp-title">
-      <div class="container">
-        <div class="whatsapp-card reveal">
-          <div class="whatsapp-icon" aria-hidden="true">💬</div>
-          <h2 id="whatsapp-title">Canal oficial de WhatsApp</h2>
-          <p class="whatsapp-quote">"KUBANO - LA PLATAFORMA QUE TE HARÁ CRECER EN EL ENTORNO LABORAL Y EN EL MERCADO"</p>
-
-          <ul class="whatsapp-benefits">
-            <li>✔️ Novedades de BDEO y ADS</li>
-            <li>✔️ Promociones exclusivas</li>
-            <li>✔️ Información relevante</li>
-            <li>✔️ Atención al público</li>
-          </ul>
-
-          <p class="whatsapp-members">Más de <strong>37 miembros</strong> ya reciben información privilegiada</p>
-          <a href="https://whatsapp.com/channel/0029VbCbhZSCXC3KMfIsc33z" class="btn btn-whatsapp" rel="noopener">Unirme al canal</a>
-        </div>
+        <p class="footnote">Ambas aplicaciones son oficiales y están desarrolladas por KUBANO en alianza con KOOWEXA.</p>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <p class="footer-text">© 2026 <strong>KUBANO</strong> & <strong>KOOWEXA</strong></p>
-      </div>
-    </div>
-  </footer>
 
   <script src="script.js" defer></script>
 </body>
