@@ -1,7 +1,6 @@
 const STATIC_CACHE = 'kubano-static-v3';
 const DYNAMIC_CACHE = 'kubano-dynamic-v3';
 const DYNAMIC_LIMIT = 20;
-
 const STATIC_ASSETS = [
   '/website/',
   '/website/index.html',
@@ -33,7 +32,6 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
-
   const url = new URL(request.url);
 
   // Recursos externos: solo network (no cacheamos CDN de GitHub raw)
@@ -63,7 +61,6 @@ self.addEventListener('fetch', (event) => {
         const clone = res.clone();
         caches.open(DYNAMIC_CACHE).then(cache => {
           cache.put(request, clone);
-          // Limpieza simple si excede límite
           cache.keys().then(keys => {
             if (keys.length > DYNAMIC_LIMIT) cache.delete(keys[0]);
           });
