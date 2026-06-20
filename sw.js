@@ -8,7 +8,6 @@ const STATIC_ASSETS = [
   '/website/script.js',
   '/website/manifest.json'
 ];
-
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
@@ -16,7 +15,6 @@ self.addEventListener('install', (event) => {
       .then(() => self.skipWaiting())
   );
 });
-
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then(names =>
@@ -28,18 +26,13 @@ self.addEventListener('activate', (event) => {
     ).then(() => self.clients.claim())
   );
 });
-
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
-
-  // Recursos externos: solo network (no cacheamos CDN de GitHub raw)
   if (url.origin !== location.origin) {
     return;
   }
-
-  // Documentos: network-first con fallback a cache
   if (request.destination === 'document') {
     event.respondWith(
       fetch(request)
@@ -52,8 +45,6 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
-
-  // Resto (CSS/JS/manifest): cache-first con fallback
   event.respondWith(
     caches.match(request).then(cached => {
       return cached || fetch(request).then(res => {

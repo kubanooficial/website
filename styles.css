@@ -1,14 +1,8 @@
-/* =========================================================
-   KUBANO | OFICIAL · Design System v3
-   Semántica, Performance (GPU), Accesibilidad, Escalabilidad
-   ========================================================= */
-
 @property --grad-angle {
   syntax: '<angle>';
   initial-value: 135deg;
   inherits: false;
 }
-
 :root {
   --bg: #05060a;
   --bg-elev: #0a0c14;
@@ -24,30 +18,24 @@
   --accent-dark: #0066FF;
   --success: #4ade80;
   --warning: #ffc107;
-  --danger: #ff6b6b;
-
   --radius: 12px;
   --radius-lg: 20px;
   --radius-xl: 28px;
-
   --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
   --shadow-glow: 0 0 48px rgba(0, 212, 255, 0.15);
-
   color-scheme: dark;
 }
-
-/* --- Reset --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   background: var(--bg);
-  color: var(--text);  line-height: 1.6;
+  color: var(--text);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100dvh;
@@ -59,8 +47,6 @@ img, svg { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-
-/* Accesibilidad: foco visible */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -71,16 +57,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
-
 .container {
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 clamp(16px, 5vw, 28px);
 }
-
-/* =========================================================
-   FONDO DINÁMICO MULTICAPA (GPU)
-   ========================================================= */
 .bg-fx {
   position: fixed;
   inset: 0;
@@ -96,7 +77,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-radius: 50%;
   filter: blur(90px);
   opacity: 0.45;
-  will-change: transform;  animation: float 22s ease-in-out infinite;
+  will-change: transform;
+  animation: float 22s ease-in-out infinite;
 }
 .bg-fx__orb--1 {
   width: 520px; height: 520px;
@@ -141,11 +123,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-.header {  position: sticky;
+.header {
+  position: sticky;
   top: 0;
   z-index: 50;
   background: rgba(5, 6, 10, 0.72);
@@ -194,9 +173,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-color: var(--accent);
   color: var(--accent);
 }
-/* =========================================================
-   HERO LOGO CIRCULAR
-   ========================================================= */
 .hero-logo-wrap {
   display: flex;
   justify-content: center;
@@ -219,10 +195,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   0%, 100% { box-shadow: 0 0 0 3px rgba(0,212,255,0.25), 0 0 40px rgba(0,212,255,0.2), 0 8px 32px rgba(0,0,0,0.4); }
   50%      { box-shadow: 0 0 0 5px rgba(0,212,255,0.15), 0 0 60px rgba(0,212,255,0.3), 0 8px 32px rgba(0,0,0,0.4); }
 }
-
-/* =========================================================
-   HERO / DOWNLOADS
-   ========================================================= */
 .downloads {
   padding: clamp(48px, 10vh, 100px) 0 clamp(80px, 14vh, 140px);
   text-align: center;
@@ -246,7 +218,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .eyebrow-ico { flex-shrink: 0; }
 .downloads h1 {
   font-size: clamp(2rem, 6.2vw, 4rem);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.05;
   margin-bottom: 20px;
@@ -266,18 +238,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   0%, 100% { background-position: 0% 50%; }
   50%      { background-position: 100% 50%; }
 }
-
 .lead {
   color: var(--muted);
   font-size: clamp(0.98rem, 1.9vw, 1.15rem);
   max-width: 600px;
   margin: 0 auto clamp(40px, 8vh, 64px);
   line-height: 1.55;
+  font-weight: 400;
 }
-
-/* =========================================================
-   DOWNLOAD GRID + CARDS
-   ========================================================= */
 .download-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -286,13 +254,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   margin: 0 auto;
   text-align: left;
 }
-
 .download-card {
   container-type: inline-size;
   position: relative;
   padding: clamp(24px, 4vw, 32px);
   border-radius: var(--radius-xl);
-  background: var(--surface);  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   display: grid;
   gap: 12px;
   align-content: start;
@@ -332,7 +300,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   z-index: 0;
 }
 .download-card > * { position: relative; z-index: 1; }
-
 .download-card:hover {
   transform: translateY(-4px);
   background: var(--surface-hover);
@@ -340,8 +307,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 .download-card:hover::before { opacity: 1; }
 .download-card:hover::after  { opacity: 1; }
-
-.card-head {  display: flex;
+.card-head {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -364,7 +331,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-color: rgba(74, 222, 128, 0.2);
 }
 .download-card:hover .card-icon { transform: scale(1.08) rotate(-4deg); }
-
 .tag {
   display: inline-flex;
   align-items: center;
@@ -387,10 +353,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--success);
   border: 1px solid rgba(74, 222, 128, 0.25);
 }
-
 .download-card h2 {
   font-size: clamp(1.3rem, 2.6vw, 1.65rem);
-  font-weight: 700;  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 .card-desc {
   color: var(--muted);
@@ -421,10 +387,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   box-shadow: 0 0 8px currentColor;
 }
 [data-variant="free"] .card-points li::before { color: var(--success); }
-
-/* =========================================================
-   BOTONES
-   ========================================================= */
 .btn {
   position: relative;
   display: inline-flex;
@@ -439,7 +401,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   transition:
     transform var(--transition-fast),
     background var(--transition),
-    border-color var(--transition),    box-shadow var(--transition);
+    border-color var(--transition),
+    box-shadow var(--transition);
   overflow: hidden;
   isolation: isolate;
 }
@@ -456,14 +419,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .btn:hover::before { left: 140%; }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
-
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #001220;
   box-shadow: 0 6px 20px rgba(0, 212, 255, 0.25);
 }
 .btn-primary:hover { box-shadow: 0 10px 32px rgba(0, 212, 255, 0.45); }
-
 .btn-secondary {
   background: var(--surface-strong);
   border: 1px solid var(--border-strong);
@@ -474,21 +435,17 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--accent);
   box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
 }
-
 .footnote {
   color: var(--muted);
   font-size: 0.85rem;
   margin-top: 48px;
   opacity: 0.85;
 }
-
-/* =========================================================
-   FAQ
-   ========================================================= */
 .faq {
   margin-top: clamp(56px, 10vh, 96px);
   max-width: 720px;
-  margin-left: auto;  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
   display: grid;
   gap: 10px;
@@ -504,7 +461,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .faq-item[open] { border-color: var(--accent); }
 .faq-item summary {
   padding: 16px 20px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
   list-style: none;
@@ -528,16 +485,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: 0.9rem;
   line-height: 1.6;
 }
-
-/* =========================================================
-   FOOTER (con logo + título)
-   ========================================================= */
 .footer {
   margin-top: clamp(48px, 10vh, 96px);
   padding: 32px 0;
   border-top: 1px solid var(--border);
   background: rgba(5, 6, 10, 0.5);
-  backdrop-filter: blur(10px);  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .footer-inner {
   display: flex;
@@ -569,15 +523,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   letter-spacing: -0.3px;
 }
 .footer-partner strong { color: var(--text); }
-
-/* =========================================================
-   RESPONSIVE + ADAPTABILIDAD AVANZADA
-   ========================================================= */
 @media (max-width: 760px) {
   .download-grid { grid-template-columns: 1fr; }
   .nav-cta { display: none; }
 }
-
 @media (max-width: 480px) {
   .footer-inner {
     flex-direction: column;
@@ -590,14 +539,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .btn { width: 100%; padding: 14px 18px; }
   .card-head { flex-wrap: wrap; }
 }
-
 @container (max-width: 320px) {
   .download-card { padding: 20px; }
 }
-
-/* =========================================================
-   ACCESIBILIDAD
-   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -608,21 +552,18 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .bg-fx__orb { animation: none; }
   .hero-logo { animation: none; }
 }
-
 @media (prefers-contrast: more) {
   :root {
     --border-strong: rgba(255, 255, 255, 0.6);
     --muted: #d4d4d8;
   }
 }
-
 @media (hover: none) {
   .download-card:hover { transform: none; box-shadow: none; }
   .download-card:hover::before,
   .download-card:hover::after { opacity: 0; }
   .download-card:active { transform: scale(0.99); }
 }
-
 @media (hover: hover) and (pointer: fine) {
   .download-card { cursor: default; }
 }

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KUB-JOB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg: #f6f8fa;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e9edf2;
+            --shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+            --spinner: #2563eb;
+            --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f172a;
+                --card-bg: #1e293b;
+                --text: #f1f5f9;
+                --text-muted: #94a3b8;
+                --border: #334155;
+                --shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                --spinner: #60a5fa;
+            }
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            transition: background 0.2s, color 0.2s;
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            min-height: 40vh;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid var(--border);
+            border-top-color: var(--spinner);
+            border-radius: 50%;
+            animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            will-change: transform;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .loader-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+            font-weight: 400;
+        }
+        .header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            opacity: 0;
+            animation: fadeUp 0.4s ease 0.1s forwards;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: var(--text);
+        }
+        .header h1 span {
+            color: var(--spinner);
+        }
+        .header .count {
+            font-size: 0.85rem;
+            background: var(--border);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .jobs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            opacity: 0;
+            animation: fadeUp 0.4s ease 0.15s forwards;
+        }
+        .jobs.visible {
+            opacity: 1;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .job-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            box-shadow: var(--shadow);
+            transition: border-color 0.15s, box-shadow 0.15s;
+            word-break: break-word;
+        }
+        .job-card:hover {
+            border-color: var(--spinner);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .job-card .content {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .job-card .content a {
+            color: var(--spinner);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.15s;
+        }
+        .job-card .content a:hover {
+            border-bottom-color: var(--spinner);
+        }
+        .job-card .content a[href^="tel"] {
+            border-bottom: none;
+            font-weight: 500;
+        }
+        .footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            opacity: 0.7;
+        }
+        .error {
+            border-color: #fca5a5 !important;
+            background: #fef2f2 !important;
+            color: #991b1b !important;
+        }
+        @media (prefers-color-scheme: dark) {
+            .error {
+                background: #2d1a1a !important;
+                border-color: #7f1d1d !important;
+                color: #fca5a5 !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0;
+            }
+            .header h1 {
+                font-size: 1.25rem;
+            }
+            .job-card {
+                padding: 0.85rem 1rem;
+            }
+            .job-card .content {
+                font-size: 0.9rem;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header" id="header" style="display:none;">
+            <h1>KUB-<span>JOB</span></h1>
+            <span class="count" id="jobCount">0</span>
+        </header>
+        <div class="loader" id="loader" role="status" aria-live="polite">
+            <div class="spinner"></div>
+            <span class="loader-text">Cargando ofertas…</span>
+        </div>
+        <div class="jobs" id="jobsList"></div>
+        <footer class="footer">
+            <span>KUBANO | OFICIAL</span>
+        </footer>
+    </div>
+    <script>
+        (function() {
+            'use strict';
+            const JOBS_URL =
+                'https://raw.githubusercontent.com/kubanooficial/website/9d5e7ce87f616bbf4e2a16ef2ea8b6d93111aced/empleos/empleos.json';
+            const loader = document.getElementById('loader');
+            const header = document.getElementById('header');
+            const jobCount = document.getElementById('jobCount');
+            const jobsList = document.getElementById('jobsList');
+            const controller = new AbortController();
+            const signal = controller.signal;
+
+            function formatText(text) {
+                if (!text) return '';
+                const escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                let html = escaped.replace(/\n/g, '<br>');
+                html = html.replace(/(https?:\/\/[^\s<]+)/g, (url) => {
+                    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+                });
+                html = html.replace(/(\+?\d[\d\s\-+()]{6,})/g, (phone) => {
+                    const clean = phone.replace(/\s/g, '');
+                    if (/^[\+\d]{6,}$/.test(clean)) {
+                        return `<a href="tel:${clean}">${phone}</a>`;
+                    }
+                    return phone;
+                });
+                return html;
+            }
+
+            function renderJobs(jobs) {
+                jobsList.innerHTML = '';
+                if (!jobs || jobs.length === 0) {
+                    jobsList.innerHTML =
+                        `<div class="job-card"><div class="content">No hay ofertas disponibles.</div></div>`;
+                    jobCount.textContent = '0';
+                    return;
+                }
+                jobCount.textContent = jobs.length;
+                const fragment = document.createDocumentFragment();
+                jobs.forEach((jobText) => {
+                    const card = document.createElement('div');
+                    card.className = 'job-card';
+                    const content = document.createElement('div');
+                    content.className = 'content';
+                    content.innerHTML = formatText(jobText);
+                    card.appendChild(content);
+                    fragment.appendChild(card);
+                });
+                jobsList.appendChild(fragment);
+            }
+
+            function showError(message) {
+                loader.classList.add('hidden');
+                header.style.display = 'flex';
+                jobsList.classList.add('visible');
+                jobsList.innerHTML =
+                    `<div class="job-card error"><div class="content">⚠️ ${message || 'Error al cargar los datos.'}<br><small style="opacity:0.7;">Intenta recargar la página.</small></div></div>`;
+                jobCount.textContent = 'Error';
+            }
+
+            function fetchJobs() {
+                fetch(JOBS_URL, { signal })
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        let jobs = [];
+                        if (Array.isArray(data)) {
+                            jobs = data;
+                        } else if (data && typeof data === 'object') {
+                            const findArray = (obj) => {
+                                if (Array.isArray(obj)) return obj;
+                                if (obj && typeof obj === 'object') {
+                                    for (const key in obj) {
+                                        const result = findArray(obj[key]);
+                                        if (result) return result;
+                                    }
+                                }
+                                return null;
+                            };
+                            const found = findArray(data);
+                            if (found) jobs = found;
+                        }
+                        loader.classList.add('hidden');
+                        header.style.display = 'flex';
+                        jobsList.classList.add('visible');
+                        renderJobs(jobs);
+                    })
+                    .catch(err => {
+                        if (err.name === 'AbortError') return;
+                        loader.classList.add('hidden');
+                        header.style.display = 'flex';
+                        jobsList.classList.add('visible');
+                        showError('No se pudieron cargar las ofertas. (' + err.message + ')');
+                    });
+            }
+            fetchJobs();
+        })();
+    </script>
+</body>
+</html>
