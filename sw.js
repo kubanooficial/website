@@ -1,6 +1,4 @@
-const STATIC_CACHE = 'kubano-static-v3';
-const DYNAMIC_CACHE = 'kubano-dynamic-v3';
-const DYNAMIC_LIMIT = 20;
+const CACHE_NAME = 'kubanofficial-v1';
 const STATIC_ASSETS = [
   '/website/',
   '/website/index.html',
@@ -8,55 +6,37 @@ const STATIC_ASSETS = [
   '/website/script.js',
   '/website/manifest.json'
 ];
-self.addEventListener('install', (event) => {
+
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
+    caches.open(CACHE_NAME)
       .then(cache => cache.addAll(STATIC_ASSETS))
       .then(() => self.skipWaiting())
   );
 });
-self.addEventListener('activate', (event) => {
+
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(names =>
-      Promise.all(
-        names
-          .filter(name => ![STATIC_CACHE, DYNAMIC_CACHE].includes(name))
-          .map(name => caches.delete(name))
-      )
-    ).then(() => self.clients.claim())
+    caches.keys().then(keys => Promise.all(
+      keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+    )).then(() => self.clients.claim())
   );
 });
-self.addEventListener('fetch', (event) => {
+
+self.addEventListener('fetch', event => {
   const { request } = event;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
-  if (url.origin !== location.origin) {
-    return;
-  }
-  if (request.destination === 'document') {
-    event.respondWith(
-      fetch(request)
-        .then(res => {
-          const clone = res.clone();
-          caches.open(DYNAMIC_CACHE).then(cache => cache.put(request, clone));
-          return res;
-        })
-        .catch(() => caches.match(request))
-    );
-    return;
-  }
+  if (url.origin !== location.origin) return;
+
   event.respondWith(
     caches.match(request).then(cached => {
-      return cached || fetch(request).then(res => {
-        if (!res || res.status !== 200) return res;
-        const clone = res.clone();
-        caches.open(DYNAMIC_CACHE).then(cache => {
-          cache.put(request, clone);
-          cache.keys().then(keys => {
-            if (keys.length > DYNAMIC_LIMIT) cache.delete(keys[0]);
-          });
-        });
-        return res;
+      if (cached) return cached;
+      return fetch(request).then(response => {
+        if (!response || response.status !== 200) return response;
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+        return response;
       });
     })
   );
