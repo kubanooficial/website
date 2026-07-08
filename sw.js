@@ -1,12 +1,11 @@
-const CACHE_NAME = 'kubanofficial-v1';
+const CACHE_NAME = 'kubanofficial-v2';
 const STATIC_ASSETS = [
   '/website/',
   '/website/index.html',
-  '/website/styles.css',
-  '/website/script.js',
   '/website/manifest.json'
 ];
 
+// Añadir también las imágenes (se cachearán al primer fetch)
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -27,6 +26,7 @@ self.addEventListener('fetch', event => {
   const { request } = event;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
+  // Solo cachear recursos del mismo origen
   if (url.origin !== location.origin) return;
 
   event.respondWith(
@@ -34,8 +34,11 @@ self.addEventListener('fetch', event => {
       if (cached) return cached;
       return fetch(request).then(response => {
         if (!response || response.status !== 200) return response;
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+        // Cachear solo recursos estáticos (imágenes, css, etc.)
+        if (request.destination === 'image' || request.destination === 'style' || request.destination === 'script') {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+        }
         return response;
       });
     })
